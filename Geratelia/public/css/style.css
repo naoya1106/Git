@@ -1,0 +1,162 @@
+/* div {
+  box-sizing: border-box;
+  border: 1px dotted blue;
+} */
+
+body{
+  margin:0;
+  color:white;
+}
+
+header{
+  margin: 0 0 10px;
+  background-color: #eeeeee;
+  border-bottom: 3px solid gray;
+  padding: 20px 0 24px;
+}
+
+.title{
+  float: left;
+}
+
+a{
+  text-decoration:none;
+  color:black;
+}
+
+a:hover{
+  opacity:0.5;
+}
+
+.user_name{
+  float: right;
+  margin-right: 10px;
+  border: 1px solid white;
+  padding: .5rem .75rem;
+  border-radius: .25rem;
+}
+
+.login_link{
+  float: right;
+  margin-right: 10px;
+}
+
+.reg_link{
+  float: right;
+  margin-right: 15px;
+}
+
+.clear{
+  clear:both;
+}
+
+.form{
+  margin: 0 20%;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.form-header{
+  padding-bottom: 15px;
+  margin:0;
+}
+
+.submit{
+  background-color:cornflowerblue;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 30%;
+}
+
+.error{
+  color: red;
+}
+
+.tokyo,.osaka,.fukuoka,.pre,.name,.spot{
+  display: inline;
+}
+
+img{
+  display: inline;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/* 背景画像 */
+.intro{
+  /* background-image: url('../images/back-img.jpeg'); */
+  /* background-color:rgba(255,255,255,0.8); */
+  background-color:rgb(250, 248, 248);
+  height: 250px;
+  color: #eeeeeee3;
+  margin: 0 auto;
+  font-size: 2.5rem;
+}
+
+.letter{
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  font-size: 2.5rem;
+}
+
+.read{
+  position: absolute;
+  top: 30%;
+  left: 16%;
+  font-size: 2.5rem;
+}
+
+.select{
+  padding-left: 38%;
+  margin: 40px 0 10px 0;
+}
+.account{
+  display: inline;
+}
+
+.instance{
+  border-radius: 15%;
+  border: 3px solid gray;
+  padding: 3%;
+  display: inline-block;
+}
+
+.instance img{
+  border-radius: 50%;
+}
+
+.add_form{
+    border-radius: 30px;
+    padding: 20px 60px;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    width: 40%;
+    margin: 40px 0 5% 32%;
+    border:solid 5px #ccc;
+    -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+.prefect{
+  text-indent: 12px;
+}
+
+input:focus {
+  border:solid 1px #EEA34A;
+}
+
+.delete{
+  display: inline;
+  background-color: burlywood;
+}
+

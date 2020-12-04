@@ -11,5 +11,11 @@ class UserController extends Controller
 
         return view('user.login');
     }
-}
 
+
+    public function reg(){
+        return view('user.reg');
+    }
+
+
+}

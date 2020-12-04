@@ -29,8 +29,8 @@
     </div>
 
     <footer>
-        <div class="footer text-center mt-3">
-              <p class="text-center">naoya 2020</p>
+        <div class="footer text-center">
+              <p class="text-center">naoya 2021</p>
         </div>
     </footer>
 

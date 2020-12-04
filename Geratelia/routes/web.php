@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 //初期画面
 Route::get('/login', 'UserController@login');
+
+//登録画面
+Route::get('/reg', 'UserController@reg');
+

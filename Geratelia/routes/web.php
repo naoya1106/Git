@@ -21,3 +21,8 @@ Route::get('/login', 'UserController@login');
 //登録画面
 Route::get('/reg', 'UserController@reg');
 
+//ホーム画面へのログイン
+Route::post('/enter', 'UserController@enter')->name('enter');
+
+//ユーザー情報の登録
+Route::post('/store', 'UserController@store');

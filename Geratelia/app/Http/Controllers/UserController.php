@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -31,7 +32,8 @@ class UserController extends Controller
     }
 
     //新規登録用 storeアクション
-    public function store(Request $request){
+    // フォームリクエストを適用
+    public function store(UserRequest $request){
 
         $user = new User();
         $user->name = $request -> name;

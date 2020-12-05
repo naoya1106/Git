@@ -26,3 +26,4 @@ Route::post('/enter', 'UserController@enter')->name('enter');
 
 //ユーザー情報の登録
 Route::post('/store', 'UserController@store');
+

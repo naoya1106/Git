@@ -27,7 +27,6 @@ class UserController extends Controller
         // 店の一覧を取得
         $images = Image::all();
         return view('user.home',compact('images'));
-
     }
 
     //新規登録用 storeアクション

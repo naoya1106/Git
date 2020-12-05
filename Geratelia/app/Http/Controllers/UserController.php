@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Image;
 use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
     //
     public function login(){
-
+        (session('user'));
         return view('user.login');
     }
 
@@ -22,12 +23,10 @@ class UserController extends Controller
      //ログイン用 enterアクション
      public function enter(Request $request){
         //nameカラムをセッションのuserキーに代入、
-            session([
-                'user' => $request->name,
-            ]);
-            // // 店の一覧を取得
-            // $images = image::all();
-            return view('user.home');
+        session(['user' => $request->name,]);
+        // 店の一覧を取得
+        $images = Image::all();
+        return view('user.home',compact('images'));
 
     }
 
@@ -41,12 +40,10 @@ class UserController extends Controller
         $user->pass = $request -> pass;
         $user->save();
         // セッションにユーザー名を保存
-        session([
-            'user' => $request->name,
-        ]);
+        session(['user' => $request->name,]);
         // 店の一覧を取得
-        // $images = image::all();
-        return view('user.home');
+        $images = Image::all();
+        return view('user.home',compact('images'));
     }
 
 }

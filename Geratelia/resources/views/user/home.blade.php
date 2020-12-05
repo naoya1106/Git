@@ -1,4 +1,3 @@
-<!-- postできたデータを取得 →userに反映 -->
 @extends('def')
 
 @section('title','HOME')
@@ -44,7 +43,8 @@
     @foreach($images as $image)
         <div class=' pre ml-4 '>
             <!-- 店毎の画像、名前、都道府県を表示 -->
-            <img src="#"  class='ge-img mb-4' width='150' height='150'>
+            <!-- assetヘルパでpublicディレクトリ下のパスを返す -->
+            <img src="{{ asset( 'storage/images/'.$image->path )}}"  class='ge-img mb-4' width='150' height='150'>
             <div class='name'>{{ $image->shop_name }}</div>
             <div class='spot'>【{{ $image->spot }}】</div>
 

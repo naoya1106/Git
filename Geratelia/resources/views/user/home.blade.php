@@ -59,5 +59,30 @@
     @endforeach
     </div>
 
+    <div class="add_form">
+        <!-- 店追加フォーム -->
+        <h4><i class="material-icons">note_add</i>店情報の追加</h4>
+        <form  method='post' action="{{ url('/add') }}" class="was-validated" enctype='multipart/form-data'>
+            {{ csrf_field() }}
+          店名：<input type="text" name='shop_name'>
+          <div class="mb-3">
+            <div class="input-group is-invalid">
+              <div class="input-group-prepend prefect mt-2">
+                <label class="input-group-text" for="validatedInputGroupSelect">都道府県 ： </label>
+              </div>
+              <select name='spot' class="custom-select mt-2" required>
+                <option value="">選ぶ</option>
+                <option value="東京">東京</option>
+                <option value="大阪">大阪</option>
+                <option value="福岡">福岡</option>
+              </select>
+            </div>
+          </div>
+
+          <input type="file" class="form-control" name="path" style='display:inline'>
+          <input type="submit" value='追加' class='mt-3 mb-2' style='display:inline'>
+        </form>
+    </div>
+
 @endsection
 

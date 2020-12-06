@@ -18,4 +18,21 @@ class ImageController extends Controller
         $images = \App\image::all();
         return view('user.home',compact('images'));
     }
+
+    public function add(Request $request){
+        // dd($request->file('path'))
+        //変数作成,各カラムを代入
+        $image = [
+        'shop_name' => $request->shop_name,
+        'spot'  => $request->spot,
+        'path'  => $request->path
+        ];
+        // dd($image);
+        \DB::table('images')->insert($image);
+
+        $images = \App\Image::all();
+        return view('user.home',compact('images'));
+   }
+
+
 }

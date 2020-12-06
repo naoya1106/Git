@@ -29,3 +29,6 @@ Route::post('/store', 'UserController@store');
 
 //投稿の削除
 Route::post('/delete/{id}', 'ImageController@delete');
+
+//投稿の追加
+Route::post('/add', 'ImageController@add');

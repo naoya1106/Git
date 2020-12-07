@@ -19,20 +19,21 @@ class ImageController extends Controller
         return view('user.home',compact('images'));
     }
 
-    public function add(Request $request){
-        // dd($request->file('path'))
-        //変数作成,各カラムを代入
-        $image = [
-        'shop_name' => $request->shop_name,
-        'spot'  => $request->spot,
-        'path'  => $request->path
-        ];
-        // dd($image);
-        \DB::table('images')->insert($image);
+        public function add(Request $request){
+            // フォームから来た画像をpublic/storage/images下に保存
+            $path = $request->path->store('public/images/');
+            //変数作成,各カラムを代入
+            $image = [
+            'shop_name' => $request->shop_name,
+            'spot'  => $request->spot,
+            //storage下(シンボリックリンク)の画像をパスに指定
+            'path'  => basename($path)
+            ];
+            // dd($image);
+            \DB::table('images')->insert($image);
 
-        $images = \App\Image::all();
-        return view('user.home',compact('images'));
-   }
-
+            $images = \App\Image::all();
+            return view('user.home',compact('images'));
+    }
 
 }

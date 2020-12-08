@@ -50,6 +50,7 @@ return [
 
         'public' => [
             'driver' => 'local',
+            // storeメソッドの保存先
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',

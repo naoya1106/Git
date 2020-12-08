@@ -20,13 +20,17 @@ class ImageController extends Controller
     }
 
         public function add(Request $request){
-            // フォームから来た画像をpublic/storage/images下に保存
-            $path = $request->path->store('public/images/');
+            // 変数にpathカラムを代入
+            // 引数にpublicを設定 → storage/app/public/に保存
+            // (storeメソッドのデフォルト空間はstorage/app/)
+            $path = $request->path->store('public');
+            // →シンボリックリンク(public/storage)にも保存が反映
+
             //変数作成,各カラムを代入
             $image = [
             'shop_name' => $request->shop_name,
             'spot'  => $request->spot,
-            //storage下(シンボリックリンク)の画像をパスに指定
+            //$pathをパスに指定
             'path'  => basename($path)
             ];
             // dd($image);

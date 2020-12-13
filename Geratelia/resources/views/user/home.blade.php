@@ -40,10 +40,10 @@
 
     <!-- foreachで投稿の表示 -->
     <div class="i-wrapper ml-5">
-        @foreach($images as $key => $image)
-            <!-- インスタンスを表示 -->
-                <div class='{{ $image->spot }} mr-3 mb-2 @if ( $key === 1 ) order @endif'>
-                    <div class=' pre ml-4 '>
+    @foreach($images as $key => $image)
+        <!-- インスタンスを表示 -->
+            <div class='instance {{ $image->spot }} mr-3 mb-2 @if ( $key === 1 ) order @endif'>
+                <div class=' pre ml-4 '>
                         <!-- 店毎の名前、都道府県、画像を表示 -->
                         <img src=" {{ asset( 'storage/'.$image->path ) }}"  class='ge-img mb-4' width='150' height='150'>
                         <div class='name'>{{ $image->shop_name }}</div>

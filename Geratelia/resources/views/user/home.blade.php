@@ -29,7 +29,7 @@
 @section('images')
     <!-- ラジオボタン クリックによって投稿の絞り込み -->
     <div class="select">
-        <!-- <div class="account">場所で探す:</div> -->
+        <div class="account">場所で探す:</div>
         <form id="choice" class=''>
           <label><input type="radio" name="btn" id="a"  checked>全国</label>
           <label><input type="radio" name="btn" id="b" >東京</label>
@@ -40,23 +40,26 @@
 
     <!-- foreachで投稿の表示 -->
     <div class="i-wrapper ml-5">
-    @foreach($images as $image)
-        <div class=' pre ml-4 '>
-            <!-- 店毎の画像、名前、都道府県を表示 -->
-            <!-- assetヘルパでシンボリックリンク内の画像を参照 -->
-            <img src="{{ asset( 'storage/'.$image->path )}}"  class='ge-img mb-4' width='150' height='150'>
-            <div class='name'>{{ $image->shop_name }}</div>
-            <div class='spot'>【{{ $image->spot }}】</div>
+        @foreach($images as $key => $image)
+            <!-- インスタンスを表示 -->
+                <div class='{{ $image->spot }} mr-3 mb-2 @if ( $key === 1 ) order @endif'>
+                    <div class=' pre ml-4 '>
+                        <!-- 店毎の名前、都道府県、画像を表示 -->
+                        <img src=" {{ asset( 'storage/'.$image->path ) }}"  class='ge-img mb-4' width='150' height='150'>
+                        <div class='name'>{{ $image->shop_name }}</div>
+                        <div class='spot'>【{{ $image->spot }}】</div>
 
-            <!-- 投稿の削除ボタン -->
-            <form method='post' action="{{ url('/delete',$image->id) }}">
-            {{ csrf_field() }}
-            <input type='submit' class='delete' value='削除'>
-            </form>
-        </div>
-        <!-- jQuelyを読み込み -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    @endforeach
+                        <form method='post' action="{{ url('/delete',$image->id) }}">
+                        {{ csrf_field() }}
+                        <input type='submit' class='delete' value='削除'>
+                        </form>
+                    </div>
+                </div>
+            <!-- jQuelyを読み込み -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <!-- JSを読み込み -->
+            <script src=" {{ asset('js/main.js') }}"></script>
+        @endforeach
     </div>
 
     <!-- 店追加フォーム -->

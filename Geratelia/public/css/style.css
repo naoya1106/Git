@@ -132,31 +132,43 @@ img{
   border-radius: 50%;
 }
 
-.add_form{
-    border-radius: 30px;
-    padding: 20px 60px;
-    margin-top: 10px;
-    text-align: center;
-    position: relative;
-    width: 40%;
-    margin: 40px 0 5% 32%;
-    border:solid 5px #ccc;
-    -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
-    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
-    box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+.add_form {
+  border-radius: 30px;
+  padding: 20px 60px;
+  text-align: center;
+  position: relative;
+
+  max-width: 1024px;
+  // margin: 40px 0 5% 32%;
+margin: 0 auto;
+  margin-top: 10px;
+
+  border:solid 5px #ccc;
+  -moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+@media ( max-width: 768px ) {
+  .add_form {
+      margin-left: 1rem;
+      margin-right: 1rem;     
+  }
 }
 
 .prefect{
-  text-indent: 12px;
+text-indent: 12px;
 }
 
 input:focus {
-  border:solid 1px #EEA34A;
+border:solid 1px #EEA34A;
 }
 
 .delete{
-  display: inline;
-  background-color: burlywood;
+display: inline;
+background-color: burlywood;
 }
+
+
 

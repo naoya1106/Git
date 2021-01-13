@@ -41,7 +41,7 @@
     <div class="i-wrapper ml-5">
     @foreach($images as $key => $image)
         <!-- インスタンスを表示 -->
-        <!-- const.phpに定数LOCATIONを設定 -->
+        <!-- config/const.phpに定数LOCATIONを設定 -->
             <div class='instance {{ LOCATION [$image->spot] }} mr-3 mb-2 @if ( $key === 1 ) order @endif'>
                 <div class=' pre ml-4 '>
                     <!-- 店毎の名前、都道府県、画像を表示 -->

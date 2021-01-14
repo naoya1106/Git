@@ -10,7 +10,7 @@ class ImageController extends Controller
     public function delete($id){
         //idから投稿を検索→変数に代入
         $del = \App\image::find($id);
-        //　!empty＝投稿が存在→削除
+        // empty＝投稿が存在→削除
         if(!empty($del)){
             $del -> delete();
         }

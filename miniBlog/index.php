@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once('function.php');
 
@@ -10,15 +10,11 @@ $blogData = getAllBlog();
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>ミニブログ</title>
-</head>
+<title>ミニブログ一覧</title>
 <body>
-<h1>blog</h1>
-名前: <input type="text" name="name" /><br />
-ひとこと: <input type="text" name="comment" size="60" /><br />
-<input type="submit" name="submit" value="送信" />
-</form>
 
+<h2>ミニブログ一覧</h2>
+<p><a href="form.php">新規作成</a></p>
 <table>
   <tr>
       <th>No</th><th>title</th><th>comment</th><th>time</th> 

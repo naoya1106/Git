@@ -1,10 +1,11 @@
 <?php
 
-require_once('function.php');
+require_once('blog.php');
+ini_set('display_errors',"On");
 
-$dbc = new Dbc();
+$blog = new Blog();
 
-$result = $dbc->getBlog($_GET['id']);
+$result = $blog->getById($_GET['id']);
 
 ?>
 

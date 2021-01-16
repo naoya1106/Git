@@ -1,6 +1,7 @@
 <?php
 
-require_once('function.php');
+require_once('blog.php');
+ini_set('display_errors',"On");
 
 $blog = $_POST;
 
@@ -16,7 +17,7 @@ if(empty($blog['comment'])){
   exit('enter comment');
 }
 
-$dbc = new Dbc();
-$dbc->blogCreate($blog);
+$newBlog = new Blog();
+$newBlog->blogCreate($blog);
 
 ?>

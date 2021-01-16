@@ -2,7 +2,10 @@
 
 Class Dbc
 {
-    function dbConnect() {
+    protected $table_name;
+
+
+    public function dbConnect() {
         $dsn = 'mysql:host=localhost;port=8889;dbname=blog_app;charset=utf8';
         $user = 'root';
         $pass = 'root';
@@ -17,17 +20,18 @@ Class Dbc
         return $dbh;
     }
 
-    function getAllBlog() {
+    public function getAll() {
         $dbh = $this->dbConnect();
-        $sql = 'SELECT * FROM blog';
+        $sql = "SELECT * FROM $this->table_name";
         $stmt = $dbh->query($sql);
         $result = $stmt->fetchall(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    function getBlog($id){
+    public function getById($id){
+
         $dbh = $this->dbConnect();
-        $stmt = $dbh->prepare('SELECT * FROM  blog Where id = :id');
+        $stmt = $dbh->prepare("SELECT * FROM $this->table_name Where id = :id");
         $stmt->bindValue(':id',(int)$id,PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,26 +39,6 @@ Class Dbc
         return $result;
     }
 
-    function blogCreate($blog){
-        $sql = 'INSERT INTO
-              blog(title, comment)
-            VALUES
-              (:title, :comment)';
-
-        $dbh = $this->dbConnect();
-        $dbh->beginTransaction();
-        try {
-            $stmt = $dbh->prepare($sql);
-            $stmt->bindValue(':title',$blog['title'],PDO::PARAM_STR);
-            $stmt->bindValue(':comment',$blog['comment'],PDO::PARAM_STR);
-            $stmt->execute();
-            echo ブログを投稿しました;
-            $dbh->commit();
-        } catch(Exception $e){
-            $dbh->rollBack();
-            exit($e);
-        }
-  }
 
 }
 

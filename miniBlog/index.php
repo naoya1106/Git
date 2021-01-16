@@ -2,7 +2,9 @@
 
 require_once('function.php');
 
-$blogData = getAllBlog();
+$dbc = new Dbc();
+
+$blogData = $dbc->getAllBlog();
 
 ?>
 
@@ -19,7 +21,7 @@ $blogData = getAllBlog();
   <tr>
       <th>No</th><th>title</th><th>comment</th><th>time</th> 
   </tr>
-  <?php foreach($blogData as $column) ?> 
+  <?php foreach($blogData as $column): ?> 
   <tr>
       <td><?php echo $column['id'] ?></td>
       <td><?php echo $column['title'] ?></td>
@@ -27,6 +29,7 @@ $blogData = getAllBlog();
       <td><?php echo $column['time'] ?></td>
       <td><a href='detail.php?id=<?php echo $column['id']?>'>詳細</a></td>
   </tr>
+  <?php endforeach; ?>
 </table>
 
 </body>

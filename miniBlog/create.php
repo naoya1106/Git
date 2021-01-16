@@ -16,23 +16,7 @@ if(empty($blog['comment'])){
   exit('enter comment');
 }
 
-$sql = 'INSERT INTO
-          blog(title, comment)
-        VALUES
-          (:title, :comment)';
-
-$dbh = dbConnect();
-$dbh->beginTransaction();
-try {
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':title',$blog['title'],PDO::PARAM_STR);
-    $stmt->bindValue(':comment',$blog['comment'],PDO::PARAM_STR);
-    $stmt->execute();
-    echo ブログを投稿しました;
-    $dbh->commit();
-} catch(Exception $e){
-    $dbh->rollBack();
-    exit($e);
-}
+$dbc = new Dbc();
+$dbc->blogCreate($blog);
 
 ?>

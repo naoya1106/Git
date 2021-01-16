@@ -2,7 +2,9 @@
 
 require_once('function.php');
 
-$result = getBlog($_GET['id']);
+$dbc = new Dbc();
+
+$result = $dbc->getBlog($_GET['id']);
 
 ?>
 

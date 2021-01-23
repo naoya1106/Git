@@ -2,6 +2,11 @@
 // エラー文の表示
 ini_set('display_errors',"On");
 
+// エスケープ処理
+function e($h){
+  htmlspecialchars($h,ENT_QUOTES,'UTF-8');
+}
+
 // PDO実施(データベース接続)
 $dsn = 'mysql:host=localhost;port=8889;dbname=post;charset=utf8';
 $user = 'root';
@@ -55,6 +60,11 @@ $dbh->beginTransaction();
           exit($e);
       }
 
+ // テーブルからデータ取得
+ $sql = "SELECT * FROM `post` ORDER BY 'created_at' DESC";
+ $stmt = $dbh->query($sql);
+ $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +75,6 @@ $dbh->beginTransaction();
   <title>Document</title>
 </head>
 <body>
-<body>
       <h1>ひとこと掲示板</h1>
 
       <form action="dbc.php" method="post">
@@ -73,6 +82,17 @@ $dbh->beginTransaction();
             ひとこと: <input type="text" name="comment" size="60" /><br />
                     <input type="submit" name="submit" value="送信" />
       </form>
-</body>
+      <!-- データの中身を表示 -->
+      <ul>
+      <?php foreach($result as $post): ?>
+          <li>
+          <?php echo $post['name']; ?>
+          <?php echo $post['comment']; ?>
+          <?php echo $post['created_at']; ?>
+          </li>
+      <?php endforeach; ?>
+      </ul>
+    
+
 </body>
 </html>
